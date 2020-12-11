@@ -1,4 +1,4 @@
-package com.example.calculadora;
+package app.ejemplos.calculadora;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,8 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import calculadora.R;
+
 public class MainActivity extends AppCompatActivity {
-    Button bUno, bDos, bTres, bCuatro, bCinco, bSeis, bSiete, bOcho, bNueve,
+    Button bCero, bUno, bDos, bTres, bCuatro, bCinco, bSeis, bSiete, bOcho, bNueve,
             bSuma, bResta, bMultiplicacion, bDivision, bLimpiar, bBorrar, bPunto, bIgual;
     TextView Resultado;
     double resultado;
@@ -21,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        bCero = (Button) findViewById(R.id.Cero);
         bUno = (Button) findViewById(R.id.Uno);
         bDos = (Button) findViewById(R.id.Dos);
         bTres = (Button) findViewById(R.id.Tres);
@@ -40,6 +42,15 @@ public class MainActivity extends AppCompatActivity {
         Resultado = (TextView) findViewById(R.id.Etiqueta);
         bPunto = (Button) findViewById(R.id.Punto);
         bIgual = (Button) findViewById(R.id.Igual);
+
+        bCero.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrar = Resultado.getText().toString();
+                mostrar = mostrar + "0";
+                Resultado.setText(mostrar);
+            }});
+
 
         bUno.setOnClickListener(new View.OnClickListener() {
             @Override
